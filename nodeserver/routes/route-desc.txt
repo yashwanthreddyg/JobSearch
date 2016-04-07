@@ -1,0 +1,12 @@
+post /auth -> auth request
+post /register -> register request
+/api -> request for the api
+	/employee -> query as an employee
+		get / -> all jobs assigned to him
+		get /:lat/:lon/:radius ->all jobs in that location and radius
+		post /:jid -> post a bid for job jid
+	/employer -> query as an employer
+		get / -> all jobs he created
+		put /:jid/:eid -> assign job jid to employee eid
+		post / -> create a new job
+		delete /:jid -> delete a job jid

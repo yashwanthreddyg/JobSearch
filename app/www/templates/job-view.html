@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">{{jobViewCtrl.job.title}}</span>
+                <p>{{jobViewCtrl.job.jobDescription}}</p>
+                <p>Employer: {{job.employerUsername}}</p>
+                <p>{{jobViewCtrl.job.assignedTo?("Assigned to "+job.assignedTo):"Unassigned"}}</p>
+            </div>
+            <div class="card-action">
+                <a ng-click="jobViewCtrl.showMap()">SHOW ON MAP</a>
+                <!--<a href="#">This is a link</a>-->
+            </div>
+        </div>
+    </div>
+    <!--<h3>PhoneGap-GoogleMaps-Plugin</h3>-->
+    <div style="width:100%;height:0px" id="map_canvas"></div>
+    <ul ng-show="jobViewCtrl.job.bids.length > 0">
+        <h5>Bids:</h5>
+        <li ng-repeat="bid in jobViewCtrl.job.bids">
+            <div class="col s12">
+                <div class="card cyan darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{bid.bidder}}</span>
+                        <p>{{bid.msg}}</p>
+                    </div>
+                    <div ng-hide="jobViewCtrl.job.assignedTo">
+                        <div ng-show="jobViewCtrl.job.isOwner" class="card-action">
+                            <a ng-click="jobViewCtrl.approveBid(bid.bidder)">APPROVE</a>
+                            <!--<a href="#">This is a link</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div ng-hide="jobViewCtrl.job.assignedTo">
+        <div ng-hide="jobViewCtrl.job.isOwner">
+            <div class="input-field col s12">
+                <textarea ng-model="jobViewCtrl.bidMessage" id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Message</label>
+            </div>
+
+            <div class="row">
+                <a ng-click="jobViewCtrl.addBid()" class="waves-effect waves-light btn-large col s12">ADD BID</a>
+            </div>
+            <!--<button ng-click="jobViewCtrl.showMap()" id="button">SHOW ON MAP</button>-->
+        </div>
+    </div>
+</div>
+<!--<script type="text/javascript">-->
+<!--//    var map;-->
+<!--document.addEventListener("deviceready", function () {-->
+<!--var div = document.getElementById("map_canvas");-->
+<!--console.log("device ready jobview");-->
+<!--// Initialize the map view-->
+<!--jobViewCtrl.map = plugin.google.maps.Map.getMap(div);-->
+<!--//        plugin.google.maps.Map.setVisible(true);-->
+<!--// Wait until the map is ready status.-->
+<!--jobViewCtrl.map.addEventListener(plugin.google.maps.event.MAP_READY, jobViewCtrl.onMapReady);-->
+<!--}, false);-->
+
+<!--//    function onMapReady() {-->
+<!--//        var button = document.getElementById("button");-->
+<!--//        button.addEventListener("click", jobViewCtrl.showMap, false);-->
+<!--//    }-->
+<!--//-->
+<!--//    function onBtnClicked() {-->
+<!--////        map.showDialog();-->
+<!--//        job-->
+<!--//    }-->
+<!--</script>-->

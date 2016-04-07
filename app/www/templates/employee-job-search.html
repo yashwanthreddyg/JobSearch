@@ -1,0 +1,29 @@
+<div class="row">
+    <a ng-click="searchCtrl.decrementDistance()" class="waves-effect waves-light btn-large col s4 m6"><i class="material-icons">fast_rewind</i></a>
+        <h5 class = "col s4 center-align">{{searchCtrl.distance}} KM</h5>
+    <a ng-click="searchCtrl.incrementDistance()" class="waves-effect waves-light btn-large col s4 m6"><i class="material-icons">fast_forward</i></a>
+<!--</div>-->
+<!--<div class="row">-->
+    <!--<a ng-click="searchCtrl.getUnassignedJobs()" class="col s12 waves-effect waves-light btn">GET JOBS</a>-->
+    <!--<button ng-click="searchCtrl.getUnassignedJobs()" class="col s12">GET JOBS</button>-->
+</div>
+<ul>
+    <li ng-repeat = "job in searchCtrl.jobs">
+        <div class="row">
+            <div class="col s12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{job.title}}</span>
+                        <p>{{job.jobDescription}}</p>
+                        <p>{{job.distance}}KM from here</p>
+                        <p>Employer: {{job.employerUsername}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a ng-click="searchCtrl.goToDetails(job.job_id)">DETAILS</a>
+                        <!--<a href="#">This is a link</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

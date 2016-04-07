@@ -1,0 +1,23 @@
+User
+^^^^
+username string pk
+password string not null
+timeofcreation timestamp not null
+
+Job
+^^^
+jobid uuid pk
+employeruid str fk User.username
+description str not null
+the_geom geometry not null
+timeofcreation timestamp not null
+assignedto str fk User.username
+assignedat timestamp
+
+Bid
+^^^
+bidid uuid pk
+jobid uuid fk Job.jobid
+employee str fk User.username
+message str not null
+timeofcreation timestamp

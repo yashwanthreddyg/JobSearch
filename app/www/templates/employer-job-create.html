@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="input-field col s12">
+        <input ng-model="jobCreateCtrl.job.title" id="jobTitle" type="text" class="validate">
+        <label for="jobTitle">Title</label>
+    </div>
+    <div class="input-field col s12">
+        <textarea ng-model="jobCreateCtrl.job.description" id="textarea1" class="materialize-textarea"></textarea>
+        <label for="textarea1">Description</label>
+    </div>
+    <!--<label>Location</label>-->
+    <div class="col s8">
+        <div class="input-field col s12">
+            <input ng-model="jobCreateCtrl.job.latitude" id="jobLatitude" type="text" class="validate">
+            <label for="jobLatitude">Latitude</label>
+        </div>
+        <div class="input-field col s12">
+            <input ng-model="jobCreateCtrl.job.longitude" id="jobLongitude" type="text" class="validate">
+            <label for="jobLongitude">Longitude</label>
+        </div>
+    </div>
+    <div class="col s4">
+        <!--<div class="row valign-wrapper">-->
+        <!--<a ng-click="jobCreateCtrl.showMap()" class="waves-effect waves-light btn col s12 valign">Set on Map</a>-->
+        <!--</div>-->
+        <div id="mapBtn" class="row">
+            <a ng-click="jobCreateCtrl.showMap()" class="btn-floating btn-large waves-effect waves-light red">
+                <i class="material-icons">edit_location</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <a ng-click="jobCreateCtrl.addJob()" class="waves-effect waves-light btn-large col s12">CREATE JOB</a>
+</div>

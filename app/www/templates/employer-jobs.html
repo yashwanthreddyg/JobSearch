@@ -1,0 +1,25 @@
+<div class="row">
+    <ul>
+        <li ng-repeat="job in erJobsCtrl.jobs">
+            <div class="col s12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{job.title}}</span>
+                        <p>{{job.jobDescription}}</p>
+                        <p>{{job.assignedTo?("Assigned to "+job.assignedTo):"Unassigned"}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a ng-click="erJobsCtrl.goToDetails(job.job_id)">DETAILS</a>
+                        <!--<a href="#">This is a link</a>-->
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href="#/employer/create" class="btn-floating btn-large red">
+        <i class="material-icons">add</i>
+    </a>
+</div>
