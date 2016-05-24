@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cvr.easyjobsearch"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.cvr.easyjobsearch"
+        },
+        "cordova-plugin-googlemaps": {
+            "PACKAGE_NAME": "com.cvr.easyjobsearch"
+        }
+    },
+    "dependent_plugins": {}
+}

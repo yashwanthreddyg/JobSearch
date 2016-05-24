@@ -5,7 +5,9 @@ angular.module('JobSearch')
         var factory = {
             token: null,
             username: null,
-            serverAddress: null
+            serverAddress: null,
+            latitude: null,
+            longitude: null
         };
 
         var getDistance = function (lat1, lon1, lat2, lon2) {
@@ -181,8 +183,8 @@ angular.module('JobSearch')
             });
         };
 
-        factory.logout = function(){
-            factory.token = factory.username = factory.serverAddress = null;
+        factory.logout = function () {
+            factory.token = factory.username = factory.latitude = factory.longitude = null;
         };
         // if (navigator.geolocation) {
         //     navigator.geolocation.getCurrentPosition(function (loc) {

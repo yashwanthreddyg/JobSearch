@@ -1,0 +1,70 @@
+<div class="row">
+
+        <h5 id="app_title"class="center-align">EASY JOB SEARCH</h5>
+
+</div>
+<div class="row">
+    <div class="col s12 m6 ">
+        <ul class="tabs green lighten-5 white-text text-darken-2">
+            <li class="tab col s3"><a class="active" href="#loginpane">LOGIN</a></li>
+            <li class="tab col s3"><a href="#registerpane">REGISTER</a></li>
+        </ul>
+    </div>
+    <form id = "loginpane" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginCtrl.loginEmail" id="loginEmail" type="text" class="validate">
+                <label for="loginEmail">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginCtrl.loginPassword" id="loginPassword" type="password" class="validate">
+                <label for="loginPassword">Password</label>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="input-field col s12">-->
+                <!--<input ng-model="loginCtrl.loginServer" id="loginIPAddr" type="text" class="validate">-->
+                <!--<label for="loginIPAddr">IP Address</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+            <a ng-click="loginCtrl.doLogin()" class="waves-effect waves-light btn-large col s12">LOGIN</a>
+        </div>
+    </form>
+    <form id = "registerpane" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginCtrl.registerEmail" id="registerEmail" type="text" class="validate">
+                <label for="registerEmail">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginCtrl.registerPassword" id="registerPassword" type="password" class="validate">
+                <label for="registerPassword">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginCtrl.registerConfirmPassword" id="confirmPassword" type="password" class="validate">
+                <label for="confirmPassword">Confirm Password</label>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="input-field col s12">-->
+                <!--<input ng-model="loginCtrl.registerServer" id="registerIPAddr" type="text" class="validate">-->
+                <!--<label for="registerIPAddr">IP Address</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+            <a ng-click="loginCtrl.doRegister()" class="waves-effect waves-light btn-large col s12">REGISTER</a>
+        </div>
+    </form>
+    <script>
+        $('ul.tabs').tabs();
+    </script>
+</div>
+
+        

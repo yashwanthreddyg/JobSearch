@@ -58,20 +58,26 @@ angular.module('JobSearch')
             self.getUnassignedJobs = function () {
                 var scb = function (jbs) {
                     self.jobs = jbs;
+                    $rootScope.isLoading = false;
                 };
                 var ecb = function () {
                     console.log("error getting jobs");
+                    $rootScope.isLoading = false;
                 };
-                if (curLat) {
-                    NetworkService.getUnassignedJobs(curLat, curLon, self.distance * 1000, scb, ecb);
+                if (NetworkService.latitude) {
+                    $rootScope.isLoading = true;
+                    NetworkService.getUnassignedJobs(NetworkService.latitude, NetworkService.longitude, self.distance * 1000, scb, ecb);
                 }
                 else if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (loc) {
 
-                        curLat = loc.coords.latitude;
-                        curLon = loc.coords.longitude;
+                    $rootScope.isLoading = true;
+                    navigator.geolocation.getCurrentPosition(function (loc) {
+                        NetworkService.latitude = loc.coords.latitude;
+                        NetworkService.longitude = loc.coords.longitude;
                         NetworkService.getUnassignedJobs(loc.coords.latitude, loc.coords.longitude, self.distance * 1000, scb, ecb);
                     }, function (error) {
+
+                        $rootScope.isLoading = false;
                         switch (error.code) {
                             case error.PERMISSION_DENIED:
                                 console.log("User denied the request for Geolocation.");
