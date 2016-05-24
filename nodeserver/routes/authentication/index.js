@@ -15,5 +15,8 @@ router.post('/', function(req, res) {
         }
         authorizer.getToken(req.body.username, req.body.password, success, failure);
     }
+    else{
+        res.status(403).send({msg:'no credentials'});
+    }
 });
 module.exports = router;

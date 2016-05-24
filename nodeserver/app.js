@@ -1,10 +1,13 @@
+require('dotenv').config();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var database = require(process.cwd() + '/database');
 var config = require('./config.js');
+require('dotenv').config();
 
 var routes = require('./routes');
 //var users = require('./routes/users');
@@ -41,7 +44,28 @@ app.use(function(req,res,next){
         res.status(200).send();
     }
     else
-        next(); 
+        next();
+});
+app.get('/drop',function(req,res){
+    database.drop(function(r){
+        res.send("success drop");
+    },function(r){
+        res.send(r);
+    });
+});
+app.get('/delete',function(req,res){
+    database.deleteData(function(r){
+        res.send("success delete");
+    },function(r){
+        res.send(r);
+    });
+});
+app.get('/ext',function(req,res){
+    database.addExt(function(r){
+        res.send("success ext");
+    },function(r){
+        res.send(r);
+    });
 });
 app.use('/', routes);
 //app.use('/users', users);
